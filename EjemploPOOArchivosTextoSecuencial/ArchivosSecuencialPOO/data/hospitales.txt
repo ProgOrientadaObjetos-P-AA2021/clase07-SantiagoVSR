@@ -1,0 +1,9 @@
+Hospital Isidro Ayora;100;150.5
+Hospital UTPL;67;857.6
+Hospital Loja;56;756.4
+Hospital Luis Vernaza;100;150.5
+Hospital Isidro Ayora;67;857.6
+Hospital Eugenio Espejo;56;756.4
+Hospital Luis Vernaza;100;150.5
+Hospital Isidro Ayora;67;857.6
+Hospital Eugenio Espejo;56;756.4

@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paquete4;
+package paquete6;
 
+import paquete6.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import paquete1.Empresa;
 
 public class ArchivoLectura {
 
     private Scanner entrada;
     private String nombreArchivo;
     private String rutaArchivo;
-    private ArrayList<Empresa> lista;
+    private ArrayList<Hospital> lista;
 
     public ArchivoLectura(String n) {
         nombreArchivo = n;
@@ -45,7 +45,7 @@ public class ArchivoLectura {
 
     public void establecerRutaArchivo() {
         rutaArchivo = String.format("data/%s.txt",
-                obtenerNombreArchivo());
+                obtenerNombreArchivo());;
     }
 
     public String obtenerNombreArchivo() {
@@ -70,15 +70,16 @@ public class ArchivoLectura {
                 ArrayList<String> linea_partes = new ArrayList<>(
                         Arrays.asList( linea.split(";") )
                 );
-                Empresa p = new Empresa(linea_partes.get(1),
-                        linea_partes.get(0));
+                Hospital p = new Hospital(linea_partes.get(0),
+                        Integer.parseInt (linea_partes.get(1)),
+                        Double.parseDouble(linea_partes.get(2)));
                 lista.add(p);
 
             } // fin de while
        }
     }
 
-    public ArrayList<Empresa> obtenerLista() {
+    public ArrayList<Hospital> obtenerLista() {
         
         return lista;
     }
@@ -92,12 +93,14 @@ public class ArchivoLectura {
 
     @Override
     public String toString(){
-        String cadena = "Lista Empresas\n";
+        String cadena = "El Hospital\n";
         for (int i = 0; i < obtenerLista().size(); i++) {
-            cadena = String.format("%s(%d) %s %s\n", cadena,
+            cadena = String.format("%s(%d) El %s tiene un total de %s camas y"
+                    + " un presupuesto de %s\n", cadena,
                     i+1,
                     obtenerLista().get(i).obtenerNombre(),
-                    obtenerLista().get(i).obtenerCiudad());
+                    obtenerLista().get(i).obtenerCiudad(),
+                    obtenerLista().get(i).obtenerPresupuesto());
         }
         return cadena;
     }
